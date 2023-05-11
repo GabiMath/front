@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0.5em;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 98vh;
+}
+
+h1,
+h2,
+h3,
+ngx-qrcode,
+label,
+button,
+p,
+textarea {
+    display: flex;
+    flex-wrap: wrap;
+    /*Uso de wrap para ajustar los ítems al espacio*/
+    justify-content: center;
+    margin: auto;
+}
+
+p {
+    padding: 2em 0em 0em;
+}
+
+p[id="mensaje"] {
+    font-weight: bold;
+}
+
+h1,
+footer {
+    color: #fff;
+    background-color: #3F51B5;
+    /*text-transform: uppercase;*/
+    padding: 0.3em;
+    margin: 2em auto;
+    text-align: center;
+}
+
+footer {
+    margin: auto 0 0;
+    clear: both;
+}
+
+textarea {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    /*Uso de wrap para ajustar los ítems al espacio*/
+    justify-content: center;
+    background-color: #3F51B5;
+    color: #dddddd;
+    margin-bottom: 0.5em;
+}
+
+nav a {
+    padding: 1em;
+    background-color: #3F51B5;
+    color: #dddddd;
+    text-decoration-line: none;
+}
+
+nav a.active{
+    background-color: #838fce;
+}

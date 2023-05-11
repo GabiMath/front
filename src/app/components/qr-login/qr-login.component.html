@@ -1,0 +1,65 @@
+<section *ngIf="status=='' || status=='logout'">
+    <h2>Por favor escanea el código desde tu aplicación de whatsapp para acceder desde el número del que se enviarán los
+        mensajes</h2>
+    <h3>Si no aparece el qr recarga la página</h3>
+    <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value"
+        cssClass="qrcodeshadow"></ngx-qrcode>
+</section>
+<section *ngIf="status=='ready'">
+    <nav>
+        <a accesskey="A" tabindex="1" routerLink="" routerLinkActive="active" class="actual">Envío instantáneo</a>
+        <a accesskey="S" tabindex="2" routerLink="/inform-list" >Informe sobre el envío</a>
+    </nav>
+    <router-outlet></router-outlet>
+    <input id="file" #csvInput hidden="true" type="file" onclick="this.value=null" (change)="xlsxInputChange($event)"
+        accept=".xlsx" />
+
+    <div mat-dialog-actions align="center"><button mat-flat-button color="primary" class="file"
+            (click)="csvInput.click()" value="document.querySelector('file').name">Seleccionar archivo xlsx</button>
+    </div>
+    <p id="p">No has seleccionado archivo</p>
+    <!--p style="margin-top: 4%; margin-bottom: 4%;"-->
+    <p id="mensaje">Añade tu mensaje:</p><br />
+    <textarea cols="60" rows="10" [(ngModel)]="message" matInput
+        placeholder="Por favor ingresa tu mensaje"></textarea><br />
+    <p id="envio">Envía tu mensaje:</p><br />
+    <div mat-dialog-actions align="center"><button mat-raised-button color="primary" (click)="sendMesage()">Enviar
+            mensajes</button></div>
+    <!--/p-->
+</section>
+
+
+<!--mat-grid-list cols="4" rowHeight="10:1" style="margin-top:2rem;">
+    <mat-grid-tile colspan="1" rowspan="10">
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="10" *ngIf="status=='' || status=='logout'">
+        <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value"
+            cssClass="qrcodeshadow"></ngx-qrcode>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="20" *ngIf="status=='ready'">
+        <div style="width: 100%; height: 100%;">
+            <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="xlsxInputChange($event)"
+                accept=".xlsx" />
+            <button mat-flat-button color="primary" (click)="csvInput.click()">Seleccionar archivo xlsx</button>
+
+            <p style="margin-top: 4%; margin-bottom: 4%;">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Mensaje</mat-label>
+                    <textarea [(ngModel)]="message" matInput placeholder="Porfavor ingresa tu mensaje"></textarea>
+                </mat-form-field>
+                 <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput placeholder="Porfavor ingresa tu mensaje">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field> 
+            </p>
+            <button mat-raised-button color="primary" (click)="sendMesage()">Enviar mensajes</button>
+        </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="10">
+
+    </mat-grid-tile>
+</mat-grid-list-->
